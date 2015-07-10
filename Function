@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<script src="rita.js"></script>
+
+<script>
+
+var text_string;
+
+function read(textFile){
+    var xhr=new XMLHttpRequest;
+    xhr.open('GET',textFile);
+    xhr.onload=show;
+    xhr.send()
+}
+
+function show(){
+	text_string = this.response;
+    alert(text_string);
+}
+
+function replaceAll(find, replace, str) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
+
+read('hi.txt');	
+
+var old = prompt("What word do you want to replace?");
+var new_word = prompt("What word you you want to replace " + old + " with?");
+
+var new_string = replaceAll(old, new_word, text_string);
+alert(new_string);
+
+
+
+	
+</script>
+</head>
+<body>
+</body>
